@@ -1,40 +1,65 @@
+import { foodRecipeData, recipeDataByCategory } from "./allAPI.js";
+
+import printToUI from "./printToUI.js";
+
 const tabs = document.querySelectorAll(".tabs-container button");
-const resultContainers = document.querySelectorAll(".recipe-result-container");
+const resultContainer = document.getElementById("recipe-result-container");
+const tabsContainer = document.getElementById("tabs-container");
+const heroSectionContainer = document.getElementById("hero-section-container");
+const homeLink = document.getElementById("home-link");
 const errorValidationTexts = document.querySelectorAll(".form-validation-error-state");
 const headerSearchIconBtn = document.getElementById("header-search-icon-btn");
 const searchInputBars = document.querySelectorAll(".search-inputBar");
 const forms = document.querySelectorAll(".search-form");
+let numberOfResults = document.getElementById("number-of-results");
+const pageTitle = document.getElementById("page-title");
 
-// Function to switch between Breakfast/Lunch/Dinner/Dessert stabs
+// Event Delegation Function to switch between Breakfast/Lunch/Dinner/Dessert tabs and it's content
+
 function switchTabs() {
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => {
-      resultContainers.forEach((resultContainer) => {
-        resultContainer.classList.remove("recipe-result-container-active");
-      });
-      tabs.forEach((tab) => {
-        tab.classList.remove("tab-active");
-      });
+  tabsContainer.addEventListener("click", (event) => {
+    let userTarget = event.target;
+    let clickedTab = userTarget.closest(".tabs-container button");
+    if (!clickedTab) {
+      return;
+    }
+    let mealType = clickedTab.dataset.mealtype;
 
-      tabs[index].classList.add("tab-active");
-      resultContainers[index].classList.add("recipe-result-container-active");
+    tabs.forEach((tab) => {
+      tab.classList.remove("tab-active");
     });
+    clickedTab.classList.add("tab-active");
+
+    if (mealType === "breakfast") {
+      recipeDataByCategory(mealType);
+    } else if (mealType === "main course") {
+      recipeDataByCategory(mealType);
+    } else if (mealType === "main course") {
+      recipeDataByCategory(mealType);
+    } else if (mealType === "dessert") {
+      recipeDataByCategory(mealType);
+    }
   });
+
+  // Destructing the Array that "tabs" returns, so as to store the first data item in "tabs" in a variable "breakfastTab"
+
+  let [breakfastTab] = tabs;
+
+  if (breakfastTab) {
+    breakfastTab.classList.add("tab-active");
+    recipeDataByCategory("breakfast");
+  }
 }
 switchTabs();
-
 //Expand and Close header Search bar
 headerSearchIconBtn.addEventListener("click", () => {
-  headerSearchIconBtn.style.display = "none";
   if (headerSearchIconBtn) {
     headerSearchIconBtn.style.display = "none";
     forms[0].style.display = "flex";
-  } else if (forms[0]) {
-    headerSearchIconBtn.style.display = "flex";
-    forms[0].style.display = "none";
   }
 });
 
+//Search Form Validation
 function searchInputValidation(index) {
   if (searchInputBars[index].value.trim() === "") {
     errorValidationTexts[index].textContent = "Enter a search item";
@@ -56,6 +81,8 @@ forms.forEach((form, index) => {
     let userInput = searchInputBars[index].value.trim();
     foodRecipeData(userInput);
 
+    pageTitle.textContent = `Search result for "${userInput.charAt(0).toUpperCase()}${userInput.slice(1)}"`;
+
     forms[0].style.display = "none";
     headerSearchIconBtn.style.display = "flex";
 
@@ -63,19 +90,9 @@ forms.forEach((form, index) => {
   });
 });
 
-//Spoonacular API
-async function foodRecipeData(userInput) {
-  const apiKEY = "b57c0eb865e84768954fa8ec016596b0";
-  const recipeEndpoint = `https://api.spoonacular.com/recipes/complexSearch?query=${userInput}&apiKey=${apiKEY}&number=2`;
-
-  try {
-    const response = await fetch(recipeEndpoint);
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error("HTTP Error 404 or 405");
-    }
-    console.log(data);
-  } catch (error) {
-    console.log("Error fecting item data");
-  }
-}
+//Reset back to home
+homeLink.addEventListener("click", () => {
+  setTimeout(() => {
+    window.location.href = "home.html";
+  }, 1000);
+});

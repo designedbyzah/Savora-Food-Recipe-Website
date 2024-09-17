@@ -82,13 +82,15 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* background-color: #fffae780; */
-  background-color: var(--primary-50);
+  background-color: #fffae790;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* background-color: var(--primary-50); */
   padding: 0.35rem 1rem;
   border-radius: 0.75rem;
   border: 1px solid var(--secondary-main);
   margin: 0.75rem 0rem 0.75rem 0rem;
-  z-index: 100;
+  z-index: 10;
 }
 
 .logo-and-text-container {
@@ -119,6 +121,9 @@ header {
 
 nav,
 ul {
+  /* position: relative;
+  z-index: 100;
+  background-color: transparent; */
   width: fit-content;
   height: auto;
   display: flex;
@@ -127,15 +132,16 @@ ul {
   align-items: center;
   column-gap: 0.25rem;
   list-style: none;
-  column-gap: 1.5rem;
+  column-gap: 2rem;
 }
 
 ul .header-nav-links {
   text-decoration: none;
-  color: var(--grey-600);
+  color: var(--grey-700);
   font-weight: 500;
   position: relative;
   font-size: 1rem;
+  background-color:;
 }
 
 ul .header-nav-links::after {
@@ -151,6 +157,7 @@ ul .header-nav-links::after {
 
 ul .header-nav-links:hover::after {
   width: 100%;
+  transition: width 0.6s ease;
 }
 
 ul .header-nav-links:hover {
@@ -211,7 +218,13 @@ ul .header-nav-links:hover {
   align-items: center;
   row-gap: 0.5rem;
   /* background: url(./images/Food\ Img.png), rgba(0, 0, 0, 0.8); */
-  background: url(./images/Food\ Img.png), rgba(41, 26, 0, 0.83);
+  /* background: url(./images/Food\ Img.png), rgba(41, 26, 0, 0.83); */
+  background: linear-gradient(to bottom, rgba(84, 68, 0, 0.82) 0%, rgba(2, 2, 2, 0.88) 49%),
+    url(./images/Food\ Img.png);
+
+  background-size: cover;
+  background-position: center;
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -526,6 +539,7 @@ ul .header-nav-links:hover {
 
 .recipe-result-card {
   height: auto;
+  /* height: 496px; */
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -535,17 +549,19 @@ ul .header-nav-links:hover {
 .img-section-of-card {
   width: 100%;
   /* max-width: 404px; */
-  height: 235px;
+  height: 200px;
   display: flex;
   flex-direction: row;
   justify-content: end;
   align-items: start;
-  background: url(./images/Food\ Img.png), rgba(41, 26, 0, 0.2);
+  background: url(./images/Food\ Img.png);
   /* background: url(./images/Food\ Img.png), rgba(0, 0, 0, 0.8); */
+  /* background-color: var(--grey-20); */
+  background-color: rgba(41, 26, 0, 0.2);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* background-blend-mode: darken; */
+  background-blend-mode: overlay;
   padding: 1.5rem;
   border-top: 1px solid var(--grey-30);
   border-right: 1px solid var(--grey-30);
@@ -566,26 +582,34 @@ ul .header-nav-links:hover {
   cursor: pointer;
 }
 
-.favorite-icon-container svg {
+.fav-icon {
   color: var(--grey-400);
+  cursor: pointer;
+
+  /* width: 20px;
+  height: 20px; */
 }
 
-.favorite-icon-container svg.favorited {
+.fav-icon-saved {
   fill: var(--red-color-fav);
+  color: transparent;
+  cursor: pointer;
 }
 
 .content-section-of-card {
   width: 100%;
   /* max-width: 404px; */
-  height: auto;
+  /* flex-grow: 1; */
+  height: 220px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: space-between;
   align-items: start;
   row-gap: 1.75rem;
   padding: 1rem 1.5rem 1.5rem 1.5rem;
   border: 1px solid var(--grey-30);
   border-radius: 0rem 0rem 0.5rem 0.5rem;
+  overflow: hidden;
 }
 
 .tags-and-title-subtext-container {
@@ -635,7 +659,7 @@ ul .header-nav-links:hover {
 }
 
 .recipe-card-title-and-subtext-container div:not([class]) {
-  width: fit-content;
+  width: 100%;
   height: auto;
 }
 
@@ -643,6 +667,10 @@ ul .header-nav-links:hover {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--grey-600);
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%; */
 }
 
 .recipe-card-title-and-subtext-container p {
@@ -650,6 +678,11 @@ ul .header-nav-links:hover {
   font-weight: normal;
   color: var(--grey-100);
   line-height: 1.3rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .calories-and-viewRecipeButton-container {
@@ -690,7 +723,7 @@ ul .header-nav-links:hover {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem;
   color: var(--secondary-main);
   background-color: var(--primary-main);
   border: 1px solid var(--secondary-main);
@@ -725,7 +758,7 @@ ul .header-nav-links:hover {
 .subscribe-to-newsletter-container {
   position: relative;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1240px;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -736,10 +769,10 @@ ul .header-nav-links:hover {
 
 .subscribe-to-newsletter-container > .footer-illustration-img {
   position: absolute;
-  width: 336px;
-  height: 280px;
+  width: 300px;
+  height: 252px;
   right: 0;
-  top: -68%;
+  top: -60%;
 }
 
 .subscribe-to-newsletter-container div:not([class]) {
@@ -826,7 +859,7 @@ ul .header-nav-links:hover {
 
 .footer-links-social-links-copyright-container {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1240px;
   height: auto;
   display: flex;
   flex-direction: column;

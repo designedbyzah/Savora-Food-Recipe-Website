@@ -28,7 +28,7 @@
           <!-- Nav Links -->
           <nav>
             <ul>
-              <li><a href="#" class="header-nav-links">Home</a></li>
+              <li><a href="#" class="header-nav-links" id="home-link">Home</a></li>
               <li><a href="#" class="header-nav-links">Favourites</a></li>
             </ul>
           </nav>
@@ -41,13 +41,7 @@
           </form>
 
           <button type="button" class="header-search-icon-btn" id="header-search-icon-btn">
-            <svg
-              width="default"
-              height="default"
-              viewBox="0 0 25 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M12 21C17.2467 21 21.5 16.7467 21.5 11.5C21.5 6.25329 17.2467 2 12 2C6.75329 2 2.5 6.25329 2.5 11.5C2.5 16.7467 6.75329 21 12 21Z"
                 stroke="currentColor"
@@ -84,13 +78,7 @@
               <div class="searchIcon-inputfield-button-container">
                 <div class="searchIcon-inputfield-container">
                   <div class="searchIcon-container">
-                    <svg
-                      width="default"
-                      height="default"
-                      viewBox="0 0 25 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                    <svg viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M12 21C17.2467 21 21.5 16.7467 21.5 11.5C21.5 6.25329 17.2467 2 12 2C6.75329 2 2.5 6.25329 2.5 11.5C2.5 16.7467 6.75329 21 12 21Z"
                         stroke="currentColor"
@@ -125,22 +113,28 @@
         </section>
         <!-- End of Hero Section -->
 
-        <section class="content-area">
+        <section class="content-area" id="content-area">
           <div class="tabs-container" id="tabs-container">
-            <button type="button" class="tab-active">
+            <button type="button" class="tab-active" data-mealtype="breakfast">
               <img src="./icons/burger.png" alt="Breakfast" />Breakfast
             </button>
 
-            <button type="button"><img src="./icons/Lunch 2.svg" alt="Lunch" />Lunch</button>
+            <button type="button" data-mealtype="main course">
+              <img src="./icons/Lunch 2.svg" alt="Lunch" />Lunch
+            </button>
 
-            <button type="button"><img src="./icons/Dinner 2.svg" alt="Dinner" />Dinner</button>
+            <button type="button" data-mealtype="main course">
+              <img src="./icons/Dinner 2.svg" alt="Dinner" />Dinner
+            </button>
 
-            <button type="button"><img src="./icons/Dessert 2.svg" alt="Dessert" />Dessert</button>
+            <button type="button" data-mealtype="dessert">
+              <img src="./icons/Dessert 2.svg" alt="Dessert" />Dessert
+            </button>
           </div>
 
           <div class="textTitle-filter-and-result-container">
             <div class="textTitle-and-filter-container">
-              <h2>ALL <span>(52)</span></h2>
+              <h2 id="page-title">ALL <span id="number-of-results">(0)</span></h2>
               <button type="button" class="filter-btn">
                 <svg
                   data-slot="icon"
@@ -160,19 +154,23 @@
                 Filters
               </button>
             </div>
-            <div class="recipe-result-container recipe-result-container-active">
-              <!--Breakfast Recipe Card 1 -->
-              <div class="recipe-result-card">
+            <div
+              class="recipe-result-container recipe-result-container-active"
+              id="recipe-result-container"
+            >
+              <!--Breakfast Recipe Card  -->
+              <div class="recipe-result-card" data-recipeid="API recipeID">
                 <div class="img-section-of-card">
-                  <div class="favorite-icon-container">
+                  <div class="favorite-icon-container" data-action="fav icon">
                     <svg
-                      width="20"
-                      height="20"
+                      class="fav-icon"
+                      data-action="fav icon"
                       viewBox="0 0 20 20"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
+                        data-action="fav icon"
                         d="M6.24984 3.33325C3.71859 3.33325 1.6665 5.38534 1.6665 7.91659C1.6665 12.4999 7.08317 16.6666 9.99984 17.6358C12.9165 16.6666 18.3332 12.4999 18.3332 7.91659C18.3332 5.38534 16.2811 3.33325 13.7498 3.33325C12.1998 3.33325 10.829 4.10284 9.99984 5.28075C9.5772 4.67876 9.01574 4.18746 8.36298 3.84846C7.71021 3.50945 6.98538 3.33273 6.24984 3.33325Z"
                         stroke="currentColor"
                         stroke-width="1"
@@ -187,21 +185,17 @@
                   <div class="tags-and-title-subtext-container">
                     <div class="tags-container">
                       <div class="tags">
-                        <p>Flour</p>
+                        <p>Vegan</p>
                       </div>
                       <div class="tags">
-                        <p>Eggs</p>
+                        <p>Gluten-free</p>
                       </div>
                       <div class="tags">
-                        <p>Syrup</p>
+                        <p>Vegetarian</p>
                       </div>
                       <div class="tags">
-                        <p>Whipped Cream</p>
+                        <p>Dairy-free</p>
                       </div>
-                      <div class="tags">
-                        <p>+5</p>
-                      </div>
-                      <!-- End of tags container -->
                     </div>
 
                     <div class="recipe-card-title-and-subtext-container">
@@ -221,598 +215,9 @@
                       <p>274 Calories</p>
                     </div>
 
-                    <button type="button" class="view-recipe-btn">View Recipe</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Breakfast Recipe Card 2 -->
-              <div class="recipe-result-card">
-                <div class="img-section-of-card">
-                  <div class="favorite-icon-container">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6.24984 3.33325C3.71859 3.33325 1.6665 5.38534 1.6665 7.91659C1.6665 12.4999 7.08317 16.6666 9.99984 17.6358C12.9165 16.6666 18.3332 12.4999 18.3332 7.91659C18.3332 5.38534 16.2811 3.33325 13.7498 3.33325C12.1998 3.33325 10.829 4.10284 9.99984 5.28075C9.5772 4.67876 9.01574 4.18746 8.36298 3.84846C7.71021 3.50945 6.98538 3.33273 6.24984 3.33325Z"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <div class="content-section-of-card">
-                  <div class="tags-and-title-subtext-container">
-                    <div class="tags-container">
-                      <div class="tags">
-                        <p>Flour</p>
-                      </div>
-                      <div class="tags">
-                        <p>Eggs</p>
-                      </div>
-                      <div class="tags">
-                        <p>Syrup</p>
-                      </div>
-                      <div class="tags">
-                        <p>Whipped Cream</p>
-                      </div>
-                      <div class="tags">
-                        <p>+5</p>
-                      </div>
-                      <!-- End of tags container -->
-                    </div>
-
-                    <div class="recipe-card-title-and-subtext-container">
-                      <div><h3>Fluffy Buttermilk Pancakes</h3></div>
-                      <div>
-                        <p>
-                          Start your day with our Buttermilk Pancakes, served hot and fresh with a
-                          drizzle of maple syrup.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="calories-and-viewRecipeButton-container">
-                    <div class="calories-and-icon-container">
-                      <i class="fa-solid fa-fire"></i>
-                      <p>274 Calories</p>
-                    </div>
-
-                    <button type="button" class="view-recipe-btn">View Recipe</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Breakfast Recipe Card 3 -->
-              <div class="recipe-result-card">
-                <div class="img-section-of-card">
-                  <div class="favorite-icon-container">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6.24984 3.33325C3.71859 3.33325 1.6665 5.38534 1.6665 7.91659C1.6665 12.4999 7.08317 16.6666 9.99984 17.6358C12.9165 16.6666 18.3332 12.4999 18.3332 7.91659C18.3332 5.38534 16.2811 3.33325 13.7498 3.33325C12.1998 3.33325 10.829 4.10284 9.99984 5.28075C9.5772 4.67876 9.01574 4.18746 8.36298 3.84846C7.71021 3.50945 6.98538 3.33273 6.24984 3.33325Z"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <div class="content-section-of-card">
-                  <div class="tags-and-title-subtext-container">
-                    <div class="tags-container">
-                      <div class="tags">
-                        <p>Flour</p>
-                      </div>
-                      <div class="tags">
-                        <p>Eggs</p>
-                      </div>
-                      <div class="tags">
-                        <p>Syrup</p>
-                      </div>
-                      <div class="tags">
-                        <p>Whipped Cream</p>
-                      </div>
-                      <div class="tags">
-                        <p>+5</p>
-                      </div>
-                      <!-- End of tags container -->
-                    </div>
-
-                    <div class="recipe-card-title-and-subtext-container">
-                      <div><h3>Fluffy Buttermilk Pancakes</h3></div>
-                      <div>
-                        <p>
-                          Start your day with our Buttermilk Pancakes, served hot and fresh with a
-                          drizzle of maple syrup.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="calories-and-viewRecipeButton-container">
-                    <div class="calories-and-icon-container">
-                      <i class="fa-solid fa-fire"></i>
-                      <p>274 Calories</p>
-                    </div>
-
-                    <button type="button" class="view-recipe-btn">View Recipe</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Breakfast Recipe Card 4 -->
-              <div class="recipe-result-card">
-                <div class="img-section-of-card">
-                  <div class="favorite-icon-container">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6.24984 3.33325C3.71859 3.33325 1.6665 5.38534 1.6665 7.91659C1.6665 12.4999 7.08317 16.6666 9.99984 17.6358C12.9165 16.6666 18.3332 12.4999 18.3332 7.91659C18.3332 5.38534 16.2811 3.33325 13.7498 3.33325C12.1998 3.33325 10.829 4.10284 9.99984 5.28075C9.5772 4.67876 9.01574 4.18746 8.36298 3.84846C7.71021 3.50945 6.98538 3.33273 6.24984 3.33325Z"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <div class="content-section-of-card">
-                  <div class="tags-and-title-subtext-container">
-                    <div class="tags-container">
-                      <div class="tags">
-                        <p>Flour</p>
-                      </div>
-                      <div class="tags">
-                        <p>Eggs</p>
-                      </div>
-                      <div class="tags">
-                        <p>Syrup</p>
-                      </div>
-                      <div class="tags">
-                        <p>Whipped Cream</p>
-                      </div>
-                      <div class="tags">
-                        <p>+5</p>
-                      </div>
-                      <!-- End of tags container -->
-                    </div>
-
-                    <div class="recipe-card-title-and-subtext-container">
-                      <div><h3>Fluffy Buttermilk Pancakes</h3></div>
-                      <div>
-                        <p>
-                          Start your day with our Buttermilk Pancakes, served hot and fresh with a
-                          drizzle of maple syrup.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="calories-and-viewRecipeButton-container">
-                    <div class="calories-and-icon-container">
-                      <i class="fa-solid fa-fire"></i>
-                      <p>274 Calories</p>
-                    </div>
-
-                    <button type="button" class="view-recipe-btn">View Recipe</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="recipe-result-container">
-              <!-- Lunch Recipe Card 1 -->
-              <div class="recipe-result-card">
-                <div class="img-section-of-card">
-                  <div class="favorite-icon-container">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6.24984 3.33325C3.71859 3.33325 1.6665 5.38534 1.6665 7.91659C1.6665 12.4999 7.08317 16.6666 9.99984 17.6358C12.9165 16.6666 18.3332 12.4999 18.3332 7.91659C18.3332 5.38534 16.2811 3.33325 13.7498 3.33325C12.1998 3.33325 10.829 4.10284 9.99984 5.28075C9.5772 4.67876 9.01574 4.18746 8.36298 3.84846C7.71021 3.50945 6.98538 3.33273 6.24984 3.33325Z"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <div class="content-section-of-card">
-                  <div class="tags-and-title-subtext-container">
-                    <div class="tags-container">
-                      <div class="tags">
-                        <p>Flour</p>
-                      </div>
-                      <div class="tags">
-                        <p>Eggs</p>
-                      </div>
-                      <div class="tags">
-                        <p>Syrup</p>
-                      </div>
-                      <div class="tags">
-                        <p>Whipped Cream</p>
-                      </div>
-                      <div class="tags">
-                        <p>+5</p>
-                      </div>
-                      <!-- End of tags container -->
-                    </div>
-
-                    <div class="recipe-card-title-and-subtext-container">
-                      <div><h3>Fluffy Buttermilk Pancakes</h3></div>
-                      <div>
-                        <p>
-                          Start your day with our Buttermilk Pancakes, served hot and fresh with a
-                          drizzle of maple syrup.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="calories-and-viewRecipeButton-container">
-                    <div class="calories-and-icon-container">
-                      <i class="fa-solid fa-fire"></i>
-                      <p>274 Calories</p>
-                    </div>
-
-                    <button type="button" class="view-recipe-btn">View Recipe</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Lunch Recipe Card 2 -->
-              <div class="recipe-result-card">
-                <div class="img-section-of-card">
-                  <div class="favorite-icon-container">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6.24984 3.33325C3.71859 3.33325 1.6665 5.38534 1.6665 7.91659C1.6665 12.4999 7.08317 16.6666 9.99984 17.6358C12.9165 16.6666 18.3332 12.4999 18.3332 7.91659C18.3332 5.38534 16.2811 3.33325 13.7498 3.33325C12.1998 3.33325 10.829 4.10284 9.99984 5.28075C9.5772 4.67876 9.01574 4.18746 8.36298 3.84846C7.71021 3.50945 6.98538 3.33273 6.24984 3.33325Z"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <div class="content-section-of-card">
-                  <div class="tags-and-title-subtext-container">
-                    <div class="tags-container">
-                      <div class="tags">
-                        <p>Flour</p>
-                      </div>
-                      <div class="tags">
-                        <p>Eggs</p>
-                      </div>
-                      <div class="tags">
-                        <p>Syrup</p>
-                      </div>
-                      <div class="tags">
-                        <p>Whipped Cream</p>
-                      </div>
-                      <div class="tags">
-                        <p>+5</p>
-                      </div>
-                      <!-- End of tags container -->
-                    </div>
-
-                    <div class="recipe-card-title-and-subtext-container">
-                      <div><h3>Fluffy Buttermilk Pancakes</h3></div>
-                      <div>
-                        <p>
-                          Start your day with our Buttermilk Pancakes, served hot and fresh with a
-                          drizzle of maple syrup.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="calories-and-viewRecipeButton-container">
-                    <div class="calories-and-icon-container">
-                      <i class="fa-solid fa-fire"></i>
-                      <p>274 Calories</p>
-                    </div>
-
-                    <button type="button" class="view-recipe-btn">View Recipe</button>
-                  </div>
-                </div>
-              </div>
-
-              <!--Lunch Recipe Card 3 -->
-              <div class="recipe-result-card">
-                <div class="img-section-of-card">
-                  <div class="favorite-icon-container">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6.24984 3.33325C3.71859 3.33325 1.6665 5.38534 1.6665 7.91659C1.6665 12.4999 7.08317 16.6666 9.99984 17.6358C12.9165 16.6666 18.3332 12.4999 18.3332 7.91659C18.3332 5.38534 16.2811 3.33325 13.7498 3.33325C12.1998 3.33325 10.829 4.10284 9.99984 5.28075C9.5772 4.67876 9.01574 4.18746 8.36298 3.84846C7.71021 3.50945 6.98538 3.33273 6.24984 3.33325Z"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <div class="content-section-of-card">
-                  <div class="tags-and-title-subtext-container">
-                    <div class="tags-container">
-                      <div class="tags">
-                        <p>Flour</p>
-                      </div>
-                      <div class="tags">
-                        <p>Eggs</p>
-                      </div>
-                      <div class="tags">
-                        <p>Syrup</p>
-                      </div>
-                      <div class="tags">
-                        <p>Whipped Cream</p>
-                      </div>
-                      <div class="tags">
-                        <p>+5</p>
-                      </div>
-                      <!-- End of tags container -->
-                    </div>
-
-                    <div class="recipe-card-title-and-subtext-container">
-                      <div><h3>Fluffy Buttermilk Pancakes</h3></div>
-                      <div>
-                        <p>
-                          Start your day with our Buttermilk Pancakes, served hot and fresh with a
-                          drizzle of maple syrup.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="calories-and-viewRecipeButton-container">
-                    <div class="calories-and-icon-container">
-                      <i class="fa-solid fa-fire"></i>
-                      <p>274 Calories</p>
-                    </div>
-
-                    <button type="button" class="view-recipe-btn">View Recipe</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="recipe-result-container">
-              <!--Dinner Recipe Card 1 -->
-              <div class="recipe-result-card">
-                <div class="img-section-of-card">
-                  <div class="favorite-icon-container">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6.24984 3.33325C3.71859 3.33325 1.6665 5.38534 1.6665 7.91659C1.6665 12.4999 7.08317 16.6666 9.99984 17.6358C12.9165 16.6666 18.3332 12.4999 18.3332 7.91659C18.3332 5.38534 16.2811 3.33325 13.7498 3.33325C12.1998 3.33325 10.829 4.10284 9.99984 5.28075C9.5772 4.67876 9.01574 4.18746 8.36298 3.84846C7.71021 3.50945 6.98538 3.33273 6.24984 3.33325Z"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <div class="content-section-of-card">
-                  <div class="tags-and-title-subtext-container">
-                    <div class="tags-container">
-                      <div class="tags">
-                        <p>Flour</p>
-                      </div>
-                      <div class="tags">
-                        <p>Eggs</p>
-                      </div>
-                      <div class="tags">
-                        <p>Syrup</p>
-                      </div>
-                      <div class="tags">
-                        <p>Whipped Cream</p>
-                      </div>
-                      <div class="tags">
-                        <p>+5</p>
-                      </div>
-                      <!-- End of tags container -->
-                    </div>
-
-                    <div class="recipe-card-title-and-subtext-container">
-                      <div><h3>Fluffy Buttermilk Pancakes</h3></div>
-                      <div>
-                        <p>
-                          Start your day with our Buttermilk Pancakes, served hot and fresh with a
-                          drizzle of maple syrup.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="calories-and-viewRecipeButton-container">
-                    <div class="calories-and-icon-container">
-                      <i class="fa-solid fa-fire"></i>
-                      <p>274 Calories</p>
-                    </div>
-
-                    <button type="button" class="view-recipe-btn">View Recipe</button>
-                  </div>
-                </div>
-              </div>
-
-              <!--Dinner Recipe Card 2 -->
-              <div class="recipe-result-card">
-                <div class="img-section-of-card">
-                  <div class="favorite-icon-container">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6.24984 3.33325C3.71859 3.33325 1.6665 5.38534 1.6665 7.91659C1.6665 12.4999 7.08317 16.6666 9.99984 17.6358C12.9165 16.6666 18.3332 12.4999 18.3332 7.91659C18.3332 5.38534 16.2811 3.33325 13.7498 3.33325C12.1998 3.33325 10.829 4.10284 9.99984 5.28075C9.5772 4.67876 9.01574 4.18746 8.36298 3.84846C7.71021 3.50945 6.98538 3.33273 6.24984 3.33325Z"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <div class="content-section-of-card">
-                  <div class="tags-and-title-subtext-container">
-                    <div class="tags-container">
-                      <div class="tags">
-                        <p>Flour</p>
-                      </div>
-                      <div class="tags">
-                        <p>Eggs</p>
-                      </div>
-                      <div class="tags">
-                        <p>Syrup</p>
-                      </div>
-                      <div class="tags">
-                        <p>Whipped Cream</p>
-                      </div>
-                      <div class="tags">
-                        <p>+5</p>
-                      </div>
-                      <!-- End of tags container -->
-                    </div>
-
-                    <div class="recipe-card-title-and-subtext-container">
-                      <div><h3>Fluffy Buttermilk Pancakes</h3></div>
-                      <div>
-                        <p>
-                          Start your day with our Buttermilk Pancakes, served hot and fresh with a
-                          drizzle of maple syrup.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="calories-and-viewRecipeButton-container">
-                    <div class="calories-and-icon-container">
-                      <i class="fa-solid fa-fire"></i>
-                      <p>274 Calories</p>
-                    </div>
-
-                    <button type="button" class="view-recipe-btn">View Recipe</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="recipe-result-container">
-              <!--Dessert Recipe Card 1 -->
-              <div class="recipe-result-card">
-                <div class="img-section-of-card">
-                  <div class="favorite-icon-container">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6.24984 3.33325C3.71859 3.33325 1.6665 5.38534 1.6665 7.91659C1.6665 12.4999 7.08317 16.6666 9.99984 17.6358C12.9165 16.6666 18.3332 12.4999 18.3332 7.91659C18.3332 5.38534 16.2811 3.33325 13.7498 3.33325C12.1998 3.33325 10.829 4.10284 9.99984 5.28075C9.5772 4.67876 9.01574 4.18746 8.36298 3.84846C7.71021 3.50945 6.98538 3.33273 6.24984 3.33325Z"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <div class="content-section-of-card">
-                  <div class="tags-and-title-subtext-container">
-                    <div class="tags-container">
-                      <div class="tags">
-                        <p>Flour</p>
-                      </div>
-                      <div class="tags">
-                        <p>Eggs</p>
-                      </div>
-                      <div class="tags">
-                        <p>Syrup</p>
-                      </div>
-                      <div class="tags">
-                        <p>Whipped Cream</p>
-                      </div>
-                      <div class="tags">
-                        <p>+5</p>
-                      </div>
-                      <!-- End of tags container -->
-                    </div>
-
-                    <div class="recipe-card-title-and-subtext-container">
-                      <div><h3>Fluffy Buttermilk Pancakes</h3></div>
-                      <div>
-                        <p>
-                          Start your day with our Buttermilk Pancakes, served hot and fresh with a
-                          drizzle of maple syrup.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="calories-and-viewRecipeButton-container">
-                    <div class="calories-and-icon-container">
-                      <i class="fa-solid fa-fire"></i>
-                      <p>274 Calories</p>
-                    </div>
-
-                    <button type="button" class="view-recipe-btn">View Recipe</button>
+                    <button type="button" class="view-recipe-btn" data-action="view recipe btn">
+                      View Recipe
+                    </button>
                   </div>
                 </div>
               </div>
@@ -925,6 +330,6 @@
       <!-- End of overall scroll container
         -->
     </div>
-    <script src="./main.js" type="module"></script>
+    <script src="main.js" type="module"></script>
   </body>
 </html>

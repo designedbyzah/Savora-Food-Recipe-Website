@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="recipepage.css" />
+    <title>Savora</title>
+  </head>
+  <body>
+    <div class="overall-container">
+      <div class="overall-scroll-container">
+        <!-- Header -->
+        <header id="header">
+          <div class="logo-and-text-container">
+            <div class="logo-container">
+              <img src="./images/Savora logo without texxt.png" alt="Savora logo" />
+            </div>
+            <h2>Savora</h2>
+          </div>
+          <!-- Nav Links -->
+          <nav>
+            <ul>
+              <li><a href="#" class="header-nav-links" id="home-link">Home</a></li>
+              <li><a href="#" class="header-nav-links">Favourites</a></li>
+            </ul>
+          </nav>
+
+          <form class="header-form search-form">
+            <input type="text" class="header-search-input search-inputBar" placeholder="Search" />
+            <div>
+              <p class="form-validation-error-state"></p>
+            </div>
+          </form>
+
+          <button type="button" class="header-search-icon-btn" id="header-search-icon-btn">
+            <svg viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 21C17.2467 21 21.5 16.7467 21.5 11.5C21.5 6.25329 17.2467 2 12 2C6.75329 2 2.5 6.25329 2.5 11.5C2.5 16.7467 6.75329 21 12 21Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M22.5 22L20.5 20"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </header>
+
+        <!-- Content Area -->
+        <section class="content-area" id="content-area">
+          <button type="button">
+            <i class="fa-solid fa-chevron-left"></i>Back to search results
+          </button>
+          <div class="overview-ingredients-cookingSteps-container">
+            <div class="overview-container">
+              <div class="title-rating-tags-timing-container">
+                <h3>Creamy Mushroom Risotto</h3>
+
+                <!-- Rating and Reviews -->
+                <div class="ratings-reviews-container">
+                  <div class="ratings">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+
+                  <span>(256 reviews)</span>
+                </div>
+                <!-- Tags -->
+                <div class="tags-container">
+                  <div class="tags">
+                    <p>Vegan</p>
+                  </div>
+                  <div class="tags">
+                    <p>Gluten-free</p>
+                  </div>
+                  <div class="tags">
+                    <p>Vegetarian</p>
+                  </div>
+                  <div class="tags">
+                    <p>Dairy-free</p>
+                  </div>
+                </div>
+
+                <div class="timing-container">
+                  <div class="icon-container">
+                    <i class="fa-solid fa-kitchen-set"></i>
+                  </div>
+                  <div class="text-container">
+                    <h4>Prep Time</h4>
+                    <p>30mins</p>
+                    <span>mins</span>
+                    <div class="vertical-divider"></div>
+                    <h4>Cook Time</h4>
+                    <p>10mins</p>
+                    <span>mins</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- End of content area -->
+      </div>
+    </div>
+  </body>
+</html>
