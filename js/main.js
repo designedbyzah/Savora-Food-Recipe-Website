@@ -55,16 +55,6 @@ forms.forEach((form, index) => {
   });
 });
 
-// document.addEventListener("DOMContentLoaded", async () => {
-//   const urlParam = new URLSearchParams(window.location.search);
-//   const userInput = urlParam.get("query");
-
-//   if (userInput) {
-//     // Call the function to load the data
-//     foodRecipeData();
-//   }
-// });
-
 // Event Delegation to handle user interactions with recipe result cards (favoriting or viewing recipes)
 handleRecipeCardInteraction(resultContainer, arrayOfSavedRecipe);
 
