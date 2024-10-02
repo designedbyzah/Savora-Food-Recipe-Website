@@ -17,12 +17,6 @@
   <body>
     <div class="overall-container">
       <div class="overall-scroll-container">
-        <!-- Loading Screen -->
-        <div id="loading-screen" class="loading-screen">
-          <div class="loader"></div>
-          <p>Getting Your Recipe...</p>
-        </div>
-
         <!-- Header -->
         <header id="header">
           <div class="logo-and-text-container">
@@ -34,8 +28,8 @@
           <!-- Nav Links -->
           <nav>
             <ul>
-              <li><a href="./home.html" class="header-nav-links">Home</a></li>
-              <li><a href="./favourites.html" class="header-nav-links">Favourites</a></li>
+              <li><a href="./home.html" class="header-nav-links" id="home-link">Home</a></li>
+              <li><a href="./favourite.html" class="header-nav-links">Favourites</a></li>
             </ul>
           </nav>
 
@@ -66,78 +60,7 @@
           </button>
         </header>
 
-        <!-- Hero Section -->
-
-        <section class="hero-section-container" id="hero-section-container">
-          <div class="hero-section-content-conatiner">
-            <button type="button" class="tagLine-hero">
-              <img src="./assets/images/Food Wrap img.png" alt="tagline icon" />
-              True recipes
-            </button>
-
-            <div class="hero-section-title-and-subtext-container">
-              <div><h1>Explore Exquisite Recipes & Savor Every Experience</h1></div>
-              <div><p>Discover curated recipes tailored to your taste.</p></div>
-            </div>
-
-            <form class="hero-section-form search-form">
-              <div class="searchIcon-inputfield-button-container">
-                <div class="searchIcon-inputfield-container">
-                  <div class="searchIcon-container">
-                    <svg viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M12 21C17.2467 21 21.5 16.7467 21.5 11.5C21.5 6.25329 17.2467 2 12 2C6.75329 2 2.5 6.25329 2.5 11.5C2.5 16.7467 6.75329 21 12 21Z"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M22.5 22L20.5 20"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-
-                  <input
-                    type="text"
-                    class="search-input search-inputBar"
-                    placeholder="Search by dish, or cuisine..."
-                  />
-                </div>
-
-                <button type="submit" class="search-btn" id="search-btn">Search</button>
-              </div>
-              <div>
-                <p class="form-validation-error-state"></p>
-              </div>
-            </form>
-          </div>
-        </section>
-        <!-- End of Hero Section -->
-
         <section class="content-area" id="content-area">
-          <div class="tabs-container" id="tabs-container">
-            <button type="button" class="tab-active" data-mealtype="breakfast">
-              <img src="./assets/icons/burger.png" alt="Breakfast" />Breakfast
-            </button>
-
-            <button type="button" data-mealtype="main course">
-              <img src="./assets/icons/Lunch 2.svg" alt="Lunch" />Lunch
-            </button>
-
-            <button type="button" data-mealtype="main course">
-              <img src="./assets/icons/Dinner 2.svg" alt="Dinner" />Dinner
-            </button>
-
-            <button type="button" data-mealtype="dessert">
-              <img src="./assets/icons/Dessert 2.svg" alt="Dessert" />Dessert
-            </button>
-          </div>
-
           <div class="textTitle-filter-and-result-container">
             <div class="textTitle-and-filter-container">
               <h2 id="page-title">ALL <span id="number-of-results">(0)</span></h2>
@@ -205,14 +128,7 @@
                     </div>
 
                     <div class="recipe-card-title-and-subtext-container">
-                      <div>
-                        <h3>Fluffy Buttermilk Pancakes</h3>
-                        <div class="title-tooltip-container">
-                          <span id="title-tooltip">
-                            tesing tesing testing tesing tesing testingtesing tesing testing testing
-                          </span>
-                        </div>
-                      </div>
+                      <div><h3>Fluffy Buttermilk Pancakes</h3></div>
                       <div>
                         <p>
                           Start your day with our Buttermilk Pancakes, served hot and fresh with a
@@ -250,7 +166,7 @@
                 <button type="submit" class="subscribe-btn">Subscribe</button>
               </div>
               <div>
-                <p class="newsletter-validation-error-state"></p>
+                <p class="newsletter-validation-error-state">Enter a valid email</p>
               </div>
             </form>
             <img

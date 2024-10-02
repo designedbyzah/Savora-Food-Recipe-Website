@@ -1,43 +1,41 @@
+import { arrayOfSavedRecipe } from "./main.js";
+import { getDietaryTags } from "./recipeInfo.js";
+
 const resultContainer = document.getElementById("recipe-result-container");
 let numberOfResults = document.getElementById("number-of-results");
+const contentArea = document.getElementById("content-area");
+const pageTitle = document.getElementById("page-title");
 
-let arrayOfSavedRecipe = JSON.parse(localStorage.getItem("recipeInfo")) || [];
+// Function to Render Recipe Card
+export function printToUI(recipeData, userInput) {
+  console.log(recipeData);
 
-// let arrayOfSavedRecipe = [];
+  //Creating a Document Fragment
+  const fragment = document.createDocumentFragment();
 
-function printToUI(recipeData) {
+  //Set Page title
+  // if (userInput) {
+  //   pageTitle.textContent = `Search result for "${userInput.charAt(0).toUpperCase()}${userInput.slice(1)}"`;
+  // }
+
   resultContainer.innerHTML = "";
+
   numberOfResults.textContent = `(${recipeData.length})`;
 
-  recipeData.forEach((recipe) => {
-    let dietaryTags = [];
-
+  recipeData.forEach(async (recipe) => {
+    let recipeInfo = recipe;
+    let dietaryTags = getDietaryTags(recipe);
     let APIrecipeID = recipe.id;
-
     let recipeTitle = recipe.title;
     let recipeImage = recipe.image;
     let recipeSummary = recipe.summary.replace(/<\/?[^>]+(>|$)/g, "");
     let recipeCalories = Math.round(recipe.nutrition.nutrients[0].amount);
 
-    let dairyFree = recipe.dairyFree ? "Dairy-free" : null;
-
-    let vegan = recipe.vegan ? "Vegan" : null;
-
-    let vegetarian = recipe.vegetarian ? "Vegetarian" : null;
-
-    let glutenFree = recipe.glutenFree ? "Gluten-free" : null;
-
-    if (dairyFree) dietaryTags.push(dairyFree);
-    if (vegan) dietaryTags.push(vegan);
-    if (vegetarian) dietaryTags.push(vegetarian);
-    if (glutenFree) dietaryTags.push(glutenFree);
-
     // Create HTML Elements Dynamically
     let recipeResultCard = document.createElement("div");
     recipeResultCard.classList.add("recipe-result-card");
     recipeResultCard.setAttribute("data-recipeid", `${APIrecipeID}`);
-    recipeResultCard.setAttribute("data-recipetitle", `${recipeTitle}`);
-    // recipeResultCard.setAttribute("data-id", `${index}`);
+    recipeResultCard.setAttribute("data-recipeinfo", JSON.stringify(recipeInfo));
 
     let cardImgSection = document.createElement("div");
     cardImgSection.classList.add("img-section-of-card");
@@ -46,7 +44,6 @@ function printToUI(recipeData) {
     let favIconContainer = document.createElement("div");
     favIconContainer.classList.add("favorite-icon-container");
     favIconContainer.setAttribute("data-action", "fav icon");
-    // favIconContainer.style.cursor = "pointer";
 
     favIconContainer.innerHTML = `<svg 
  ]
@@ -65,18 +62,12 @@ function printToUI(recipeData) {
                         </svg>`;
     let favIcon = favIconContainer.querySelector("svg");
     favIcon.setAttribute("class", "fav-icon");
-    // favIcon.style.cursor = "pointer";
 
-    const savedRecipe = arrayOfSavedRecipe.some((item) => item.id === String(APIrecipeID));
+    const savedRecipe = arrayOfSavedRecipe.some((item) => item.id === APIrecipeID);
 
     if (savedRecipe) {
       favIcon.classList.add("fav-icon-saved");
     }
-
-    // favIcon.setAttribute("data-id", `${index}`);
-
-    // let favIcon = document.createElement("div");
-    // favIcon.classList.add("favorite-icon-container");
 
     let cardContentSection = document.createElement("div");
     cardContentSection.classList.add("content-section-of-card");
@@ -84,18 +75,13 @@ function printToUI(recipeData) {
     let tagsTitleSubtextContainer = document.createElement("div");
     tagsTitleSubtextContainer.classList.add("tags-and-title-subtext-container");
 
-    // let allTagsContainer = document.createElement("div");
-    // allTagsContainer.classList.add("tags-container");
-
     let allTagsContainer;
+    allTagsContainer = document.createElement("div");
+    allTagsContainer.classList.add("tags-container");
+    tagsTitleSubtextContainer.append(allTagsContainer);
 
     // Looping the "dietaryTags" array to display it's content on UI
-    dietaryTags.forEach((dietaryTag) => {
-      if (!allTagsContainer) {
-        allTagsContainer = document.createElement("div");
-        allTagsContainer.classList.add("tags-container");
-      }
-
+    dietaryTags.forEach(async (dietaryTag) => {
       let tagContainer = document.createElement("div");
       tagContainer.classList.add("tags");
 
@@ -106,22 +92,15 @@ function printToUI(recipeData) {
       allTagsContainer.append(tagContainer);
     });
 
-    if (allTagsContainer) {
-      tagsTitleSubtextContainer.append(allTagsContainer);
-    }
-
-    // if (allTagsContainer.children.length === 0) {
-    //   allTagsContainer.remove();
-    // }
-
-    // let tagContainer = document.createElement("div");
-    // tagContainer.classList.add("tags");
-
-    // let tagText = document.createElement("p");
-    // tagText.textContent = "Testinnng";
-
     let titleSubtextContainer = document.createElement("div");
     titleSubtextContainer.classList.add("recipe-card-title-and-subtext-container");
+
+    let titleTooltipContainer = document.createElement("div");
+    titleTooltipContainer.classList.add("title-tooltip-container");
+
+    let titleTooltip = document.createElement("span");
+    titleTooltip.id = "title-tooltip";
+    titleTooltip.textContent = recipeTitle;
 
     let titleContainer = document.createElement("div");
 
@@ -133,6 +112,9 @@ function printToUI(recipeData) {
 
     let subText = document.createElement("p");
     subText.textContent = `${recipeSummary}`;
+
+    // let emptyDiv = document.createElement("div");
+    // emptyDiv.classList.add("empty-div");
 
     let caloriesAndRecipeBtnContainer = document.createElement("div");
     caloriesAndRecipeBtnContainer.classList.add("calories-and-viewRecipeButton-container");
@@ -146,6 +128,16 @@ function printToUI(recipeData) {
     let caloriesText = document.createElement("p");
     caloriesText.textContent = `${recipeCalories} Calories`;
 
+    let anchorTagForViewRecipeBtn = document.createElement("a");
+    anchorTagForViewRecipeBtn.classList.add("anchor-tag-view-recipeBtn");
+    // anchorTagForViewRecipeBtn.target = "_blank";
+    // anchorTagForViewRecipeBtn.href = `./recipepage.html?recipeID=${APIrecipeID}`;
+    anchorTagForViewRecipeBtn.rel = "noopener noreferrer";
+
+    // if (anchorTagForViewRecipeBtn) {
+    //   window.location.href = "./recipepage.html";
+    // }
+
     let viewRecipeBtn = document.createElement("button");
     viewRecipeBtn.classList.add("view-recipe-btn");
     viewRecipeBtn.setAttribute("type", "button");
@@ -155,7 +147,7 @@ function printToUI(recipeData) {
 
     // Append created Elements
 
-    resultContainer.append(recipeResultCard);
+    fragment.append(recipeResultCard);
 
     recipeResultCard.append(cardImgSection, cardContentSection);
 
@@ -166,81 +158,19 @@ function printToUI(recipeData) {
 
     tagsTitleSubtextContainer.append(titleSubtextContainer);
 
-    // allTagsContainer.append(tagContainer);
-    // tagContainer.append(tagText);
+    titleSubtextContainer.append(titleContainer, subTextContainer, titleTooltipContainer);
 
-    titleSubtextContainer.append(titleContainer, subTextContainer);
+    titleTooltipContainer.append(titleTooltip);
 
     titleContainer.append(titleText);
     subTextContainer.append(subText);
 
-    caloriesAndRecipeBtnContainer.append(caloriesAndIconContainer, viewRecipeBtn);
+    anchorTagForViewRecipeBtn.append(viewRecipeBtn);
+
+    caloriesAndRecipeBtnContainer.append(caloriesAndIconContainer, anchorTagForViewRecipeBtn);
 
     caloriesAndIconContainer.append(caloriesIcon, caloriesText);
   });
+
+  resultContainer.appendChild(fragment);
 }
-
-// Event delegation function for each result cards
-
-resultContainer.addEventListener("click", (event) => {
-  let userTarget = event.target;
-  let theClickedRecipeCard = userTarget.closest(".recipe-result-card");
-  if (!theClickedRecipeCard) {
-    return;
-  }
-
-  // let recipeCardIndex = Number(theClickedRecipeCard.dataset.id);
-
-  let favIcon = theClickedRecipeCard.querySelector(".fav-icon");
-  if (!favIcon) {
-    return;
-  }
-
-  let clickedAction = userTarget.dataset.action;
-  let APIrecipeID = theClickedRecipeCard.dataset.recipeid;
-
-  let recipeTitle = theClickedRecipeCard.dataset.recipetitle;
-
-  console.log(clickedAction);
-
-  // console.log(APIrecipeID);
-  console.log(arrayOfSavedRecipe);
-
-  if (clickedAction === "fav icon") {
-    saveUnsaveRecipe(favIcon, APIrecipeID, recipeTitle);
-  }
-});
-
-function saveUnsaveRecipe(favIcon, APIrecipeID, recipeTitle) {
-  const savedRecipe = arrayOfSavedRecipe.some((item) => item.id === APIrecipeID);
-
-  // console.log(item.id);
-
-  if (savedRecipe) {
-    const userConfirm = confirm("This recipe is in your favorites. Do you want to remove it?");
-    if (userConfirm) {
-      favIcon.classList.remove("fav-icon-saved");
-      favIcon.classList.add("fav-icon");
-
-      arrayOfSavedRecipe = arrayOfSavedRecipe.filter((item) => item.id !== APIrecipeID);
-
-      localStorage.setItem("recipeInfo", JSON.stringify(arrayOfSavedRecipe));
-    }
-  } else {
-    favIcon.classList.toggle("fav-icon-saved");
-
-    arrayOfSavedRecipe.push({ id: APIrecipeID, title: recipeTitle });
-
-    localStorage.setItem("recipeInfo", JSON.stringify(arrayOfSavedRecipe));
-  }
-}
-
-// function updateLocalStorage() {
-//   if (localStorage.getItem("recipeInfo")) {
-//     arrayOfSavedRecipe = JSON.parse(localStorage.getItem("recipeInfo"));
-//   }
-// }
-// updateLocalStorage();
-console.log(arrayOfSavedRecipe);
-
-export default printToUI;

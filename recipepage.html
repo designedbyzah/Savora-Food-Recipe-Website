@@ -17,106 +17,271 @@
     <div class="overall-container">
       <div class="overall-scroll-container">
         <!-- Header -->
-        <header id="header">
-          <div class="logo-and-text-container">
-            <div class="logo-container">
-              <img src="./images/Savora logo without texxt.png" alt="Savora logo" />
-            </div>
-            <h2>Savora</h2>
-          </div>
-          <!-- Nav Links -->
-          <nav>
-            <ul>
-              <li><a href="#" class="header-nav-links" id="home-link">Home</a></li>
-              <li><a href="#" class="header-nav-links">Favourites</a></li>
-            </ul>
-          </nav>
-
-          <form class="header-form search-form">
-            <input type="text" class="header-search-input search-inputBar" placeholder="Search" />
-            <div>
-              <p class="form-validation-error-state"></p>
-            </div>
-          </form>
-
-          <button type="button" class="header-search-icon-btn" id="header-search-icon-btn">
-            <svg viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 21C17.2467 21 21.5 16.7467 21.5 11.5C21.5 6.25329 17.2467 2 12 2C6.75329 2 2.5 6.25329 2.5 11.5C2.5 16.7467 6.75329 21 12 21Z"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M22.5 22L20.5 20"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-        </header>
 
         <!-- Content Area -->
-        <section class="content-area" id="content-area">
-          <button type="button">
+        <main
+          class="content-area back-overview-ingredients-cookingSteps-container"
+          id="info-content-area"
+        >
+          <button type="button" class="back-btn">
             <i class="fa-solid fa-chevron-left"></i>Back to search results
           </button>
-          <div class="overview-ingredients-cookingSteps-container">
-            <div class="overview-container">
-              <div class="title-rating-tags-timing-container">
-                <h3>Creamy Mushroom Risotto</h3>
 
-                <!-- Rating and Reviews -->
-                <div class="ratings-reviews-container">
-                  <div class="ratings">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+          <section class="title-rating-tags-timing-container">
+            <h3>Creamy Mushroom Risotto</h3>
+
+            <!-- Rating and Reviews -->
+            <div class="ratings-reviews-container">
+              <div class="ratings-container">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+
+              <span class="reviews-text">(256 reviews)</span>
+            </div>
+            <!-- Tags -->
+            <div class="tags-container">
+              <div class="tags">
+                <p>Vegan</p>
+              </div>
+              <div class="tags">
+                <p>Gluten-free</p>
+              </div>
+              <div class="tags">
+                <p>Vegetarian</p>
+              </div>
+              <div class="tags">
+                <p>Dairy-free</p>
+              </div>
+            </div>
+
+            <div class="timing-container">
+              <div class="ready-in-container">
+                <i class="fa-regular fa-clock"></i>
+                <p>Ready in</p>
+              </div>
+              <div class="minutes-container">
+                <p>30<span>mins</span></p>
+              </div>
+            </div>
+          </section>
+          <!-- Overview Section -->
+          <section class="overview-section-container">
+            <div class="img-section"></div>
+            <div class="summary-section">
+              <div class="heading-subtext-container">
+                <h3>Overview</h3>
+                <p>
+                  Indulge in a luxurious bowl of creamy Arborio rice, gently infused with the deep,
+                  earthy flavors of sautéed mushrooms and topped with a generous helping of freshly
+                  grated Parmesan cheese. This comforting Italian classic is a dish that brings both
+                  warmth and elegance to your table. With just 20 minutes of preparation and 25
+                  minutes of cooking, you will have a rich, velvety risotto ready to enjoy in under
+                  45 minutes. Each bite delivers the perfect balance of tender rice, umami-rich
+                  mushrooms, and the subtle tang of Parmesan, making it a go-to for both weeknight
+                  dinners and special gatherings. Whether you're cooking for yourself or hosting
+                  guests, this creamy mushroom risotto offers an authentic taste of Italy without
+                  hours in the kitchen. Garnish with fresh herbs or a drizzle of truffle oil for an
+                  added touch of decadence.
+                </p>
+              </div>
+              <div class="add-to-fav-btn">
+                <svg
+                  class="fav-icon"
+                  data-action="fav icon"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    data-action="fav icon"
+                    d="M6.24984 3.33325C3.71859 3.33325 1.6665 5.38534 1.6665 7.91659C1.6665 12.4999 7.08317 16.6666 9.99984 17.6358C12.9165 16.6666 18.3332 12.4999 18.3332 7.91659C18.3332 5.38534 16.2811 3.33325 13.7498 3.33325C12.1998 3.33325 10.829 4.10284 9.99984 5.28075C9.5772 4.67876 9.01574 4.18746 8.36298 3.84846C7.71021 3.50945 6.98538 3.33273 6.24984 3.33325Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <p>Add to Favourites</p>
+              </div>
+            </div>
+          </section>
+          <!-- Ingredients Section -->
+          <section class="ingredients-section-container">
+            <h3>Ingredients</h3>
+            <div class="all-ingredients-item-container">
+              <!-- ingredient 1 -->
+              <div class="ingredient-container">
+                <div class="ingredient-img-text-container">
+                  <div class="ingredient-img-container">
+                    <div class="overlay"></div>
+                    <img src="./assets/images/pot of food.png" alt="image-name" />
                   </div>
-
-                  <span>(256 reviews)</span>
+                  <div class="ingredient-name">
+                    <p>Cornstarch</p>
+                  </div>
                 </div>
-                <!-- Tags -->
-                <div class="tags-container">
-                  <div class="tags">
-                    <p>Vegan</p>
+                <div class="ingredient-amount-container">
+                  <p>1 Teaspoon</p>
+                </div>
+              </div>
+              <!-- ingredient 2 -->
+              <div class="ingredient-container">
+                <div class="ingredient-img-text-container">
+                  <div class="ingredient-img-container">
+                    <div class="overlay"></div>
+                    <img src="./assets/images/Food Img.png" alt="image-name" />
                   </div>
-                  <div class="tags">
-                    <p>Gluten-free</p>
-                  </div>
-                  <div class="tags">
-                    <p>Vegetarian</p>
-                  </div>
-                  <div class="tags">
-                    <p>Dairy-free</p>
+                  <div class="ingredient-name">
+                    <p>Shredded Cheddar Cheese</p>
                   </div>
                 </div>
-
-                <div class="timing-container">
-                  <div class="icon-container">
-                    <i class="fa-solid fa-kitchen-set"></i>
-                  </div>
-                  <div class="text-container">
-                    <h4>Prep Time</h4>
-                    <p>30mins</p>
-                    <span>mins</span>
-                    <div class="vertical-divider"></div>
-                    <h4>Cook Time</h4>
-                    <p>10mins</p>
-                    <span>mins</span>
-                  </div>
+                <div class="ingredient-amount-container">
+                  <p>2 Teaspoon</p>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+          <!-- Cooking step Section-->
+          <section class="cooking-steps-section-container">
+            <h3>Cooking Steps</h3>
+            <div class="all-steps-container">
+              <!-- Step 1 -->
+              <div class="step-container">
+                <div class="text-subtext-container">
+                  <h4>Step 1</h4>
+                  <p>
+                    Creamy Arborio rice infused with earthy mushrooms and Parmesan cheese, a
+                    comforting Italian classic. Creamy Arborio rice infused with earthy mushrooms
+                    and Parmesan cheese, a comforting Italian classic. Creamy Arborio rice infused
+                    with earthy mushrooms and Parmesan cheese, a comforting Italian classic. Creamy
+                  </p>
+                </div>
+                <div class="step-img"></div>
+              </div>
+              <!-- Step 2 -->
+              <div class="step-container">
+                <div class="text-subtext-container">
+                  <h4>Step 2</h4>
+                  <p>
+                    Creamy Arborio rice infused with earthy mushrooms and Parmesan cheese, a
+                    comforting Italian classic. Creamy Arborio rice infused with earthy mushrooms
+                    and Parmesan cheese, a comforting Italian classic. Creamy Arborio rice infused
+                    with earthy mushrooms and Parmesan cheese, a comforting Italian classic. Creamy
+                  </p>
+                </div>
+                <div class="step-img"></div>
+              </div>
+            </div>
+          </section>
+        </main>
         <!-- End of content area -->
+
+        <footer class="footer">
+          <div class="subscribe-to-newsletter-container">
+            <div><h3>Subscribe to our newsletter</h3></div>
+            <form class="footer-section-form">
+              <div class="newsletter-inputfield-button-container">
+                <input type="text" class="newsletter-input" placeholder="Enter email address" />
+                <button type="submit" class="subscribe-btn">Subscribe</button>
+              </div>
+              <div>
+                <p class="newsletter-validation-error-state"></p>
+              </div>
+            </form>
+            <img
+              src="./assets/images/Wavy Buddies Torso.png"
+              alt="footer image"
+              class="footer-illustration-img"
+            />
+          </div>
+
+          <div class="footer-links-social-links-copyright-container">
+            <div class="footerlinks-sociallinks-container">
+              <div class="savora-logo-footerlinks-container">
+                <img
+                  src="./assets/images/Savora Footer logo.png"
+                  alt="savora footer logo"
+                  class="savora-footer-logo"
+                />
+                <ul>
+                  <li><a href="#" class="footer-links">Home</a></li>
+                  <li><a href="#" class="footer-links">Favourites</a></li>
+                </ul>
+              </div>
+
+              <div class="social-links-container">
+                <!-- Instagram link -->
+                <svg
+                  width="40"
+                  height="41"
+                  viewBox="0 0 40 41"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect y="0.582275" width="40" height="40" rx="20" fill="#303030" />
+                  <g clip-path="url(#clip0_489_6531)">
+                    <path
+                      d="M20 12.5823C22.1736 12.5823 22.4448 12.5903 23.2976 12.6303C24.1496 12.6703 24.7296 12.8039 25.24 13.0023C25.768 13.2055 26.2128 13.4807 26.6576 13.9247C27.0644 14.3246 27.3792 14.8083 27.58 15.3423C27.7776 15.8519 27.912 16.4327 27.952 17.2847C27.9896 18.1375 28 18.4087 28 20.5823C28 22.7559 27.992 23.0271 27.952 23.8799C27.912 24.7319 27.7776 25.3119 27.58 25.8223C27.3797 26.3565 27.0649 26.8404 26.6576 27.2399C26.2576 27.6465 25.7738 27.9613 25.24 28.1623C24.7304 28.3599 24.1496 28.4943 23.2976 28.5343C22.4448 28.5719 22.1736 28.5823 20 28.5823C17.8264 28.5823 17.5552 28.5743 16.7024 28.5343C15.8504 28.4943 15.2704 28.3599 14.76 28.1623C14.2259 27.9619 13.742 27.647 13.3424 27.2399C12.9355 26.84 12.6207 26.3563 12.42 25.8223C12.2216 25.3127 12.088 24.7319 12.048 23.8799C12.0104 23.0271 12 22.7559 12 20.5823C12 18.4087 12.008 18.1375 12.048 17.2847C12.088 16.4319 12.2216 15.8527 12.42 15.3423C12.6202 14.808 12.935 14.3241 13.3424 13.9247C13.7421 13.5177 14.2259 13.2029 14.76 13.0023C15.2704 12.8039 15.8496 12.6703 16.7024 12.6303C17.5552 12.5927 17.8264 12.5823 20 12.5823ZM20 16.5823C18.9391 16.5823 17.9217 17.0037 17.1716 17.7538C16.4214 18.504 16 19.5214 16 20.5823C16 21.6431 16.4214 22.6606 17.1716 23.4107C17.9217 24.1608 18.9391 24.5823 20 24.5823C21.0609 24.5823 22.0783 24.1608 22.8284 23.4107C23.5786 22.6606 24 21.6431 24 20.5823C24 19.5214 23.5786 18.504 22.8284 17.7538C22.0783 17.0037 21.0609 16.5823 20 16.5823V16.5823ZM25.2 16.3823C25.2 16.1171 25.0946 15.8627 24.9071 15.6752C24.7196 15.4876 24.4652 15.3823 24.2 15.3823C23.9348 15.3823 23.6804 15.4876 23.4929 15.6752C23.3054 15.8627 23.2 16.1171 23.2 16.3823C23.2 16.6475 23.3054 16.9018 23.4929 17.0894C23.6804 17.2769 23.9348 17.3823 24.2 17.3823C24.4652 17.3823 24.7196 17.2769 24.9071 17.0894C25.0946 16.9018 25.2 16.6475 25.2 16.3823ZM20 18.1823C20.6365 18.1823 21.247 18.4351 21.6971 18.8852C22.1471 19.3353 22.4 19.9458 22.4 20.5823C22.4 21.2188 22.1471 21.8292 21.6971 22.2793C21.247 22.7294 20.6365 22.9823 20 22.9823C19.3635 22.9823 18.753 22.7294 18.3029 22.2793C17.8529 21.8292 17.6 21.2188 17.6 20.5823C17.6 19.9458 17.8529 19.3353 18.3029 18.8852C18.753 18.4351 19.3635 18.1823 20 18.1823V18.1823Z"
+                      fill="#FCCE0B"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_489_6531">
+                      <rect width="16" height="16" fill="white" transform="translate(12 12.5823)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <!-- X link -->
+                <svg
+                  width="40"
+                  height="41"
+                  viewBox="0 0 40 41"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect y="0.582275" width="40" height="40" rx="20" fill="#303030" />
+                  <path
+                    d="M23.8342 14.5823H25.8788L21.4122 19.6656L26.6668 26.5823H22.5522L19.3302 22.3869L15.6428 26.5823H13.5962L18.3742 21.1456L13.3335 14.5823H17.5522L20.4655 18.4169L23.8342 14.5823ZM23.1168 25.3636H24.2502L16.9362 15.7369H15.7202L23.1168 25.3636Z"
+                    fill="#FCCE0B"
+                  />
+                </svg>
+                <!-- facebook link -->
+                <svg
+                  width="40"
+                  height="41"
+                  viewBox="0 0 40 41"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect y="0.582275" width="40" height="40" rx="20" fill="#303030" />
+                  <g clip-path="url(#clip0_489_6527)">
+                    <path
+                      d="M20 12.5823C15.5816 12.5823 12 16.1857 12 20.631C12 24.6481 14.9256 27.9778 18.7504 28.5823V22.957H16.7184V20.631H18.7504V18.8578C18.7504 16.8408 19.944 15.7269 21.772 15.7269C22.6472 15.7269 23.5624 15.8839 23.5624 15.8839V17.8638H22.5544C21.56 17.8638 21.2504 18.4844 21.2504 19.121V20.631H23.4688L23.1144 22.957H21.2504V28.5823C25.0744 27.9786 28 24.6473 28 20.631C28 16.1857 24.4184 12.5823 20 12.5823Z"
+                      fill="#FCCE0B"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_489_6527">
+                      <rect width="16" height="16" fill="white" transform="translate(12 12.5823)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+
+            <div class="copyright-text-container">
+              <p>&copy; 2024. Designed and Built by ZAH.</p>
+            </div>
+          </div>
+        </footer>
       </div>
+      <!-- End of overall scroll container
+        -->
     </div>
+    <script src="./js/PrintRecipeDetails.js" type="module"></script>
   </body>
 </html>
