@@ -8,8 +8,6 @@ const pageTitle = document.getElementById("page-title");
 
 // Function to Render Recipe Card
 export function printToUI(recipeData, userInput) {
-  console.log(recipeData);
-
   //Creating a Document Fragment
   const fragment = document.createDocumentFragment();
 
