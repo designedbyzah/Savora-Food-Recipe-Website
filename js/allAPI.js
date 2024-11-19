@@ -1,4 +1,4 @@
-import { dummy } from "./dummy.js";
+// import { dummy } from "./dummy.js";
 import { printToUI } from "./printToUI.js";
 import { hideHeroAndTabs, hideLoadingScreen, showLoadingScreen } from "./utility.js";
 
