@@ -59,7 +59,7 @@ forms.forEach((form, index) => {
 handleRecipeCardInteraction(resultContainer, arrayOfSavedRecipe);
 
 // Set Active Nav Links and their states
-setActiveLink(headerNavLinks, arrayOfSavedRecipe);
+setActiveLink(headerNavLinks, arrayOfSavedRecipe, contentArea);
 
 // Handle back/forward navigation
 handlePopState(foodRecipeData);
